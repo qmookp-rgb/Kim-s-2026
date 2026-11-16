@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0A1E3C" />
+<title>한국재료학회 일정 (2026.11.18–20 · 창원)</title>
+<meta name="description" content="한국재료학회 2026.11.18–20 창원 연구팀 일정 — 일자별 타임라인, 택시 탑승 3팀, KTX 좌석표." />
+<style>
+  :root{
+    --navy:#08182F; --navy2:#123A66; --brand:#1B4F8A; --brand2:#2A6FB0;
+    --bg:#EEF2F7; --card:#FFFFFF; --line:#DCE5EF; --line2:#C7D6E6;
+    --ink:#0F1C2E; --slate:#41566F; --muted:#6B7F96;
+    --amber:#8A5A00; --amberbg:#FFF4DE; --amberline:#EFDCB5;
+    --teal:#0F6E6A; --tealbg:#E4F3F1; --plat:#6B3F91; --platbg:#F2EBF7;
+    --shadow:0 1px 2px rgba(15,28,46,.05), 0 12px 26px -20px rgba(15,28,46,.45);
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+    font-size:15px; line-height:1.55; letter-spacing:-0.01em;
+    padding-bottom:calc(86px + env(safe-area-inset-bottom));
+  }
+  .app{max-width:560px; margin:0 auto; min-height:100vh; position:relative;}
+
+  /* ---------- header ---------- */
+  header.top{
+    position:relative; overflow:hidden;
+    background:linear-gradient(160deg, #08182F 0%, #123A66 58%, #1B4F8A 100%);
+    color:#EAF1F9; padding:calc(16px + env(safe-area-inset-top)) 16px 16px;
+    border-radius:0 0 24px 24px;
+  }
+  header.top::after{
+    content:""; position:absolute; right:-70px; top:-80px; width:210px; height:210px; border-radius:50%;
+    background:radial-gradient(circle, rgba(122,180,255,.30), rgba(122,180,255,0) 70%); pointer-events:none;
+  }
+  .kicker{font-size:10.5px; letter-spacing:.18em; font-weight:800; color:#8FB8E0;}
+  header.top h1{margin:5px 0 3px; font-size:21px; line-height:1.3; font-weight:800; letter-spacing:-0.035em;}
+  .sub{font-size:12.5px; color:#C3D8EC; display:flex; flex-wrap:wrap; gap:6px; align-items:center;}
+  .sub .dot{opacity:.55;}
+  .pills{display:flex; gap:6px; flex-wrap:wrap; margin-top:11px;}
+  .pill{font-size:11.5px; font-weight:700; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18);
+    padding:3px 9px; border-radius:999px; color:#DCEAF7;}
+  .pill.dday{background:#EAF1F9; color:#0F2E52; border-color:#FFFFFF; font-weight:800;}
+  .mine{
+    display:flex; align-items:center; gap:9px; width:100%; margin-top:12px; text-align:left; font:inherit;
+    background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); border-radius:14px;
+    padding:9px 11px; color:#DCEAF7; cursor:pointer;
+  }
+  .mine:active{background:rgba(255,255,255,.16);}
+  .mine > svg{width:17px; height:17px; flex:0 0 17px; stroke:#9CC2E4; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+  .mine .mtext{flex:1; min-width:0; display:flex; flex-direction:column; gap:1px;}
+  .mine .m1{font-size:12.5px; font-weight:800; color:#FFFFFF; letter-spacing:-0.02em;}
+  .mine .m2{font-size:11px; color:#A9C6E0;}
+  .mine .chev{color:#7FA8CD; font-size:16px; line-height:1;}
+
+  /* ---------- layout ---------- */
+  main{padding:14px 13px 4px;}
+  .panel{display:none;}
+  .panel.on{display:block; animation:fade .22s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(5px);} to{opacity:1; transform:none;}}
+  .card, .daycard{
+    background:var(--card); border:1px solid var(--line); border-radius:18px; padding:14px 13px;
+    box-shadow:var(--shadow); margin-bottom:12px;
+  }
+  .card h2{margin:0; font-size:15.5px; font-weight:800; letter-spacing:-0.03em;}
+  .card h2 .suben{display:block; font-size:11.5px; font-weight:600; color:var(--muted); letter-spacing:0; margin-top:2px;}
+  .muted{color:var(--muted);}
+  .small{font-size:12.5px;}
+  .tiny{font-size:11.5px;}
+  .lead{margin:5px 0 0; font-size:12.5px; color:var(--slate);}
+
+  /* ---------- day chips ---------- */
+  .chipsbar{position:sticky; top:0; z-index:20; padding:8px 0 9px; margin:-6px 0 4px;
+    background:linear-gradient(180deg, var(--bg) 72%, rgba(238,242,247,0));}
+  .dchips{display:flex; gap:6px; background:#FFFFFF; border:1px solid var(--line); border-radius:14px; padding:4px;
+    box-shadow:0 6px 18px -18px rgba(15,28,46,.8);}
+  .dchip{
+    flex:1 1 0; min-width:0; border:0; background:transparent; font:inherit; font-size:12.5px; font-weight:800;
+    color:#5A7188; padding:8px 2px; border-radius:11px; cursor:pointer; letter-spacing:-0.03em; white-space:nowrap;
+  }
+  .dchip.on{background:var(--brand); color:#FFFFFF; box-shadow:0 5px 14px -10px rgba(27,79,138,.95);}
+  .dchip .wd{font-weight:700; opacity:.8; font-size:11px;}
+
+  /* ---------- timeline ---------- */
+  .dayhead{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; margin:0 2px 2px;}
+  .dnum{font-size:10px; font-weight:800; letter-spacing:.09em; color:#FFFFFF; background:var(--brand);
+    padding:2px 7px; border-radius:6px;}
+  .dayhead b{font-size:16px; font-weight:800; letter-spacing:-0.03em;}
+  .dayhead .dsub{font-size:11.5px; color:var(--muted); font-weight:600;}
+  .stops{list-style:none; margin:8px 0 2px; padding:0; position:relative;}
+  .stops::before{content:""; position:absolute; left:13px; top:15px; bottom:20px; width:2px;
+    background:linear-gradient(180deg, #DCE5EF, #C7D6E6); border-radius:2px;}
+  .stop{display:flex; gap:10px; position:relative; padding:7px 0;}
+  .node{flex:0 0 26px; width:26px; height:26px; border-radius:9px; display:grid; place-items:center;
+    background:#E9F1FA; color:var(--brand); margin-top:1px; position:relative; z-index:1;}
+  .node svg{width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round;}
+  .k-food{background:#FDF0E1; color:#B25A12;}
+  .k-sight{background:var(--tealbg); color:var(--teal);}
+  .k-stay{background:#EDEFF4; color:#4A5B72;}
+  .k-cafe{background:var(--platbg); color:var(--plat);}
+  .k-train{background:#E3EDF9; color:#12457C;}
+  .k-venue{background:#E8EFFB; color:#1B4F8A;}
+  .sc{flex:1; min-width:0;}
+  .sh{display:flex; align-items:center; gap:7px; flex-wrap:wrap;}
+  .tm{font-size:12px; font-weight:800; color:#0F3B66; background:#E9F1FA; border:1px solid #D3E2F2;
+    border-radius:7px; padding:1px 6px; font-variant-numeric:tabular-nums; letter-spacing:0;}
+  .st{font-size:14px; font-weight:800; letter-spacing:-0.025em;}
+  .sd{font-size:12.5px; color:var(--slate); margin-top:3px;}
+  .sd.none{color:var(--muted); font-size:11.5px;}
+  .tags{display:flex; gap:6px; flex-wrap:wrap; margin-top:6px;}
+  .tag{display:inline-block; font-size:11px; font-weight:800; border-radius:7px; padding:2px 7px; letter-spacing:-0.01em;}
+  .tag.amber{background:var(--amberbg); color:var(--amber); border:1px solid var(--amberline);}
+  .tag.grey{background:#F1F4F8; color:var(--muted); border:1px solid var(--line);}
+  .tag.blue{background:#EAF2FB; color:#12457C; border:1px solid #D3E2F2;}
+  .mapb{display:inline-flex; align-items:center; gap:5px; margin-top:7px; font-size:11.5px; font-weight:800;
+    color:#12457C; background:#F2F7FD; border:1px solid #D7E5F5; border-radius:9px; padding:5px 9px; text-decoration:none;}
+  .mapb svg{width:12px; height:12px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+  .move{padding:1px 0 1px 36px; position:relative;}
+  .mpill{display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:800; color:#0E5C7A;
+    background:#E7F3F9; border:1px solid #CEE6F2; border-radius:999px; padding:3px 10px; letter-spacing:-0.01em;}
+  .mpill svg{width:11px; height:11px; stroke:currentColor; fill:none; stroke-width:2.4; stroke-linecap:round; stroke-linejoin:round; opacity:.75;}
+
+  /* ---------- notices ---------- */
+  .notice{background:#F3F7FB; border:1px solid #DDE7F2; border-radius:14px; padding:11px 12px;
+    font-size:12px; color:#33495F; line-height:1.65;}
+  .notice.warn{background:var(--amberbg); border-color:var(--amberline); color:#6B4A0E;}
+  .notice b{font-weight:800;}
+  .notice + .notice{margin-top:8px;}
+
+  /* ---------- buttons / chips ---------- */
+  .mrow{display:flex; gap:6px; flex-wrap:wrap; margin-top:9px;}
+  .pbtn{font:inherit; font-size:12px; font-weight:700; color:#31485F; background:#FFFFFF; border:1px solid var(--line2);
+    border-radius:999px; padding:6px 11px; cursor:pointer; letter-spacing:-0.02em;}
+  .pbtn:active{transform:scale(.97);}
+  .pbtn.me{background:var(--brand); border-color:var(--brand); color:#FFFFFF; font-weight:800;}
+  .pbtn .dotme{display:inline-block; width:5px; height:5px; border-radius:50%; background:#FFD68A; margin-right:5px; vertical-align:1px;}
+  .toggle{display:inline-flex; align-items:center; gap:7px; font-size:12px; font-weight:700; color:#31485F;
+    background:#F4F8FC; border:1px solid var(--line2); border-radius:10px; padding:7px 11px; cursor:pointer; font-family:inherit;}
+  .toggle.on{background:var(--brand); border-color:var(--brand); color:#FFFFFF;}
+  .ghost{font:inherit; font-size:11.5px; font-weight:800; color:var(--brand); background:#FFFFFF;
+    border:1px solid var(--line2); border-radius:9px; padding:6px 10px; cursor:pointer;}
+
+  /* ---------- taxi teams ---------- */
+  .teamgrid{display:grid; gap:10px;}
+  .team{background:#FFFFFF; border:1px solid var(--line); border-radius:16px; padding:12px 13px; box-shadow:var(--shadow);}
+  .team.is-mine{border-color:var(--brand2); box-shadow:0 0 0 2px #DCEAF8, var(--shadow);}
+  .teamt{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .tnum{font-size:12px; font-weight:800; color:#FFFFFF; background:var(--brand); border-radius:8px; padding:2px 8px;}
+  .teamt .cnt{font-size:11.5px; font-weight:700; color:var(--muted);}
+  .payee{margin-left:auto; font-size:11.5px; font-weight:700; color:#31485F;
+    background:#F1F5FA; border:1px solid var(--line); border-radius:8px; padding:2px 8px;}
+  .isbadge{display:none; font-size:10.5px; font-weight:800; color:var(--brand); background:#E4EFFA;
+    border:1px solid #C9DEF4; border-radius:7px; padding:2px 7px;}
+  .team.is-mine .isbadge{display:inline-block;}
+  .team .members{display:flex; gap:6px; flex-wrap:wrap; margin-top:9px;}
+  .mchip{font:inherit; font-size:12.5px; font-weight:700; color:#2C4257; background:#F7FAFD; border:1px solid var(--line);
+    border-radius:10px; padding:6px 10px; cursor:pointer; letter-spacing:-0.02em;}
+  .mchip.me{background:#E4EFFA; border-color:#BBD8F3; color:#0F3B66; font-weight:800;}
+
+  /* ---------- KTX ---------- */
+  .leg{background:#FFFFFF; border:1px solid var(--line); border-radius:18px; padding:14px 13px;
+    box-shadow:var(--shadow); margin-bottom:12px;}
+  .legh{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .dir{font-size:11.5px; font-weight:800; color:#FFFFFF; background:var(--navy2); border-radius:8px; padding:2px 8px;}
+  .ldate{font-size:12px; font-weight:800; color:var(--slate);}
+  .trainno{margin-left:auto; font-size:11.5px; font-weight:800; color:#12457C; background:#EAF2FB;
+    border:1px solid #D3E2F2; border-radius:8px; padding:2px 8px;}
+  .route{display:flex; align-items:center; gap:8px; margin-top:10px; font-size:15px; font-weight:800; letter-spacing:-0.03em;}
+  .route .t{font-variant-numeric:tabular-nums;}
+  .route .arrow{color:var(--brand2); font-weight:700;}
+  .route .t.miss{font-size:12.5px; font-weight:700; color:var(--muted);}
+  .legmeta{display:flex; gap:6px; flex-wrap:wrap; margin-top:8px;}
+  .carmeta{display:flex; align-items:baseline; gap:8px; margin:13px 0 0;}
+  .carmeta b{font-size:13px; font-weight:800;}
+  .carmeta .n{font-size:11.5px; font-weight:700; color:var(--muted);}
+  .seatgrid{display:grid; grid-template-columns:repeat(4, 1fr); gap:7px; margin-top:8px;}
+  .seat{font:inherit; font-size:13px; font-weight:800; color:#22394F; background:#F6F9FC; border:1px solid var(--line2);
+    border-radius:11px; padding:10px 2px; cursor:pointer; font-variant-numeric:tabular-nums; letter-spacing:0;
+    display:flex; flex-direction:column; align-items:center; gap:1px;}
+  .seat .sl{font-size:9.5px; font-weight:700; color:var(--muted); letter-spacing:0; display:none;}
+  .seat.mine{background:var(--brand); border-color:var(--brand); color:#FFFFFF;}
+  .seat.mine .sl{display:block; color:#CFE3F8;}
+  .seat.off{color:#A3B3C4; background:#F5F7FA; border-style:dashed; cursor:default; text-decoration:line-through;}
+  .seat:active:not(.off){transform:scale(.97);}
+  .minebar{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:11px; padding-top:10px; border-top:1px dashed var(--line);}
+  .minebar .now{font-size:11.5px; font-weight:800; color:#12457C;}
+  .minebar .now.empty{color:var(--muted); font-weight:700;}
+
+  /* ---------- bottom nav ---------- */
+  nav.tabbar{
+    position:fixed; left:50%; transform:translateX(-50%); bottom:0; width:100%; max-width:560px; z-index:40;
+    display:grid; grid-template-columns:repeat(3, 1fr);
+    background:rgba(255,255,255,.97); backdrop-filter:blur(10px); border-top:1px solid var(--line);
+    padding:7px 8px calc(7px + env(safe-area-inset-bottom)); box-shadow:0 -8px 24px -20px rgba(10,30,60,.9);
+  }
+  nav.tabbar button{border:0; background:transparent; font:inherit; font-size:10.5px; font-weight:800; color:#7E93A8;
+    display:flex; flex-direction:column; align-items:center; gap:3px; padding:5px 2px 3px; border-radius:12px; cursor:pointer;}
+  nav.tabbar button svg{width:21px; height:21px; stroke:currentColor; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round;}
+  nav.tabbar button.on{color:var(--brand); background:#EEF4FB;}
+
+  .toast{position:fixed; left:50%; bottom:calc(92px + env(safe-area-inset-bottom)); transform:translate(-50%, 12px);
+    background:#0A1E3C; color:#EAF1F9; font-size:12.5px; font-weight:700; padding:9px 15px; border-radius:999px;
+    opacity:0; pointer-events:none; transition:.22s; z-index:60; box-shadow:0 10px 24px -12px rgba(0,0,0,.6);
+    max-width:88vw; text-align:center;}
+  .toast.on{opacity:1; transform:translate(-50%, 0);}
+  footer.foot{padding:8px 18px 24px; font-size:10.5px; color:#8698AB; line-height:1.75; text-align:center;}
+
+  /* ---------- desktop ---------- */
+  @media (min-width: 900px){
+    body{font-size:15px;}
+    .app{max-width:1020px;}
+    header.top{padding-left:26px; padding-right:26px; border-radius:0 0 26px 26px;}
+    header.top h1{font-size:25px;}
+    main{padding:18px 24px 6px;}
+    .daygrid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:14px; align-items:start;}
+    .daygrid .daycard{margin-bottom:0;}
+    .daygrid.single{grid-template-columns:1fr; max-width:560px; margin:0 auto;}
+    .teamgrid{grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));}
+    .ktxgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start;}
+    .ktxgrid .leg{margin-bottom:0;}
+    .chipsbar{top:0;}
+    nav.tabbar{max-width:640px; border-radius:18px 18px 0 0;}
+    .mine{max-width:520px;}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header class="top">
+    <div class="kicker">KIMS 2026 · CHANGWON</div>
+    <h1>한국재료학회 일정</h1>
+    <div class="sub">
+      <span>2026.11.18(수) – 11.20(금)</span>
+      <span class="dot">·</span>
+      <span>창원</span>
+    </div>
+    <div class="pills">
+      <span class="pill dday" id="dday">D-2</span>
+      <span class="pill">KTX 205 · 09:29</span>
+      <span class="pill">11명 · 택시 3팀</span>
+      <span class="pill">KTX 16석</span>
+    </div>
+    <button class="mine" id="mineBar" type="button" aria-label="내 팀과 내 좌석 보기">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c1.2-3.6 4-5.4 7.5-5.4S18.3 16.4 19.5 20"/></svg>
+      <span class="mtext">
+        <span class="m1" id="mineTeam">내 팀 · 1팀 (결제 오소망)</span>
+        <span class="m2" id="mineSeat">가는 편·오는 편 좌석 미지정 — 눌러서 고르기</span>
+      </span>
+      <span class="chev">›</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ============ 1. 일정 ============ -->
+    <section class="panel on" id="p-sched">
+      <div class="chipsbar">
+        <div class="dchips" id="dayChips" role="tablist" aria-label="일자 선택"></div>
+      </div>
+      <div id="timeline"></div>
+      <div class="notice" style="margin-top:2px">
+        <b>원문 그대로 표기</b><br>
+        일정은 이은정 님이 만든 PPT(<b>한국재료학회 일정_이은정_1.pptx</b>) 원문을 그대로 옮겼습니다. 원문에 시각이 없는 일정은 시간을 비워 두었고, 숙소 이름은 원문에 없어 표기하지 않았습니다(지도 링크도 없음).
+      </div>
+      <div class="notice" style="margin-top:8px">
+        <b>지도 버튼</b><br>
+        장소 카드의 <b>네이버 지도</b> 버튼을 누르면 네이버 지도 검색으로 바로 열립니다. 현장에서 길찾기·영업시간 확인에 쓰세요.
+      </div>
+      <div style="display:flex; gap:8px; margin-top:12px">
+        <button class="ghost" id="copyBtn" type="button" style="flex:1; padding:10px">일정 요약 복사하기</button>
+      </div>
+    </section>
+
+    <!-- ============ 2. 택시팀 ============ -->
+    <section class="panel" id="p-taxi">
+      <div class="card">
+        <h2>택시 탑승팀<span class="suben">18·19·20일 매일 공통 · 11명 / 3팀</span></h2>
+        <p class="lead">내 이름을 누르면 <b>내 팀이 강조</b>됩니다. 팀 카드의 이름을 눌러도 같은 방식으로 바뀝니다.</p>
+        <div class="mrow" id="mePicker"></div>
+        <div style="display:flex; gap:8px; margin-top:11px; flex-wrap:wrap">
+          <button class="toggle" id="onlyMine" type="button">내 팀만 보기</button>
+        </div>
+      </div>
+      <div class="teamgrid" id="teamGrid"></div>
+      <div class="notice" style="margin-top:12px">
+        <b>결제자 표기</b> — 1팀 결제자는 원문에 <b>“소망”</b>으로 적혀 있습니다(팀원 명단의 <b>오소망</b> 님). 2팀 최병선, 3팀 이은정.
+      </div>
+      <div class="notice" style="margin-top:8px">
+        <b>결제 방식</b> — 원문에는 결제자만 표시되어 있고, 정산 방법(각자 나눠 내는지 등)은 적혀 있지 않습니다. 현장에서 팀별로 확인하세요.
+      </div>
+    </section>
+
+    <!-- ============ 3. KTX ============ -->
+    <section class="panel" id="p-ktx">
+      <div class="card">
+        <h2>KTX 좌석표<span class="suben">가는 편 9석 · 오는 편 7석</span></h2>
+        <p class="lead">좌석을 누르면 <b>내 자리</b>로 표시됩니다(이 브라우저에만 저장). 위쪽 “내 팀” 줄에도 함께 표시됩니다.</p>
+        <div style="display:flex; gap:8px; margin-top:11px; flex-wrap:wrap">
+          <button class="ghost" id="clearSeats" type="button">내 좌석 지우기</button>
+        </div>
+      </div>
+      <div class="ktxgrid" id="ktxGrid"></div>
+      <div class="notice warn" style="margin-top:12px">
+        <b>오는 편은 예매 내역을 다시 확인하세요</b><br>
+        20일 오는 편의 편명(<b>KTX 205</b>)은 PPT 원문 표기 그대로이며, 원문에 <b>출발·도착 시각이 없습니다</b>. 실제 예매한 열차 편명·시간과 좌석(6호차)을 예매 내역에서 한 번 더 확인하시고, 10A는 원문에 <b>“없음”</b>으로 적혀 있습니다.
+      </div>
+      <div class="notice" style="margin-top:8px">
+        <b>따로 출발</b><br>
+        가는 편 — 김태수 박사님 · 오는 편 — 김태수 박사님, 이수연 박사님
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    출처 — 한국재료학회 일정_이은정_1.pptx (원문 텍스트·표 그대로)<br>
+    일정·좌석·팀은 현장 사정에 따라 바뀔 수 있습니다. 개인 일정은 당일 다시 확인하세요.
+  </footer>
+</div>
+
+<nav class="tabbar" id="tabbar" aria-label="화면 전환">
+  <button data-tab="sched" class="on" type="button" aria-current="page">
+    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M8 14h3M8 17h5"/></svg>
+    일정
+  </button>
+  <button data-tab="taxi" type="button">
+    <svg viewBox="0 0 24 24"><path d="M5 18h14M4 18v-4.2L6.2 8h11.6L20 13.8V18"/><path d="M6.2 8h11.6"/><circle cx="7.6" cy="15" r="1.1"/><circle cx="16.4" cy="15" r="1.1"/></svg>
+    택시팀
+  </button>
+  <button data-tab="ktx" type="button">
+    <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="10" rx="2.5"/><path d="M3 12h18"/><path d="M8 19l1.6-3M16 19l-1.6-3"/></svg>
+    KTX
+  </button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* =========================================================
+     DATA — 출처: 한국재료학회 일정_이은정_1.pptx (슬라이드 2~4)
+     원문에 없는 숙소명·시각은 넣지 않습니다.
+     ========================================================= */
+  var DAYS = [
+    {
+      id:"d1", day:"DAY 1", label:"11월 18일 (수)", short:"18일", wd:"수", date:"11.18",
+      stops:[
+        {k:"train", icon:"train", time:"11:22", t:"창원중앙역 도착", d:"KTX 205 · 09:29 → 11:22",
+         tags:[{c:"amber", x:"김태수 박사님 따로 출발"}], map:"창원중앙역"},
+        {move:"이동 20분"},
+        {k:"stay", icon:"bed", t:"숙소", d:"2층 프론트에 짐 보관", none:"숙소명은 원문에 표기 없음"},
+        {move:"이동 11분"},
+        {k:"food", icon:"food", time:"12:40", t:"점심식사 · 정일옥", d:"12:40 예약", map:"정일옥 창원"},
+        {move:"걸어서 25분"},
+        {k:"sight", icon:"sight", t:"마산시립박물관", map:"마산시립박물관"},
+        {move:"이동 17분"},
+        {k:"sight", icon:"sight", t:"해양드라마세트장", map:"해양드라마세트장"},
+        {move:"이동 26분"},
+        {k:"food", icon:"food", t:"저녁식사 · 본질닭도리탕", map:"본질닭도리탕 창원"},
+        {move:"걸어서 20분"},
+        {k:"stay", icon:"bed", t:"숙소"}
+      ]
+    },
+    {
+      id:"d2", day:"DAY 2", label:"11월 19일 (목)", short:"19일", wd:"목", date:"11.19",
+      stops:[
+        {k:"stay", icon:"bed", t:"숙소 출발"},
+        {move:"이동 15분"},
+        {k:"venue", icon:"venue", t:"창원컨벤션센터 (CECO)", d:"포스터 발표 10:30 – 11:50",
+         tags:[{c:"blue", x:"포스터 발표"}], map:"창원컨벤션센터"},
+        {move:"차량 5분 / 걸어서 35분"},
+        {k:"food", icon:"food", t:"저녁식사 · 초가집", map:"초가집 창원"},
+        {move:"이동 20분"},
+        {k:"stay", icon:"bed", t:"숙소"}
+      ]
+    },
+    {
+      id:"d3", day:"DAY 3", label:"11월 20일 (금)", short:"20일", wd:"금", date:"11.20",
+      stops:[
+        {k:"stay", icon:"bed", t:"숙소 출발"},
+        {move:"이동 15분"},
+        {k:"venue", icon:"venue", t:"창원컨벤션센터 (CECO)", d:"~12:30까지", map:"창원컨벤션센터"},
+        {move:"이동 6분"},
+        {k:"food", icon:"food", t:"점심식사 · 도원정", map:"도원정 창원"},
+        {k:"cafe", icon:"cafe", t:"카페", none:"장소명은 원문에 표기 없음"},
+        {move:"이동 5분"},
+        {k:"train", icon:"train", t:"창원중앙역 복귀", d:"KTX 205 · 시각은 원문에 없음",
+         tags:[{c:"amber", x:"예매 내역 재확인"},{c:"grey", x:"김태수·이수연 박사님 따로 출발"}], map:"창원중앙역"}
+      ]
+    }
+  ];
+
+  var TEAMS = [
+    {id:1, payer:"오소망", members:["정성묵 박사님","최영민 박사님","김성민","오소망"]},
+    {id:2, payer:"최병선", members:["이수연 박사님","김태수 박사님","최병선","강윤원"]},
+    {id:3, payer:"이은정", members:["이은정","조두호","김지연"]}
+  ];
+
+  var LEGS = [
+    {
+      id:"out", dir:"가는 편", date:"11.18 (수)", train:"KTX 205", time:"09:29", arrive:"11:22",
+      car:"14호차", seats:["11A","11B","11C","11D","12A","12B","12C","12D","13A"], off:[],
+      note:"김태수 박사님 따로 출발"
+    },
+    {
+      id:"back", dir:"오는 편", date:"11.20 (금)", train:"KTX 205", time:"", arrive:"",
+      car:"6호차", seats:["10A","10B","10C","10D","11A","11B","11C","11D"], off:["10A"],
+      note:"김태수 박사님, 이수연 박사님 따로 출발"
+    }
+  ];
+
+  var ICONS = {
+    train:'<svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14"/><path d="M8 20l2-4M16 20l-2-4"/></svg>',
+    food:'<svg viewBox="0 0 24 24"><path d="M7 3v7a2.5 2.5 0 005 0V3"/><path d="M9.5 10v11"/><path d="M18 3v18"/><path d="M18 8c1.6 0 2.6-1.2 2.6-2.8S19.6 3 18 3"/></svg>',
+    sight:'<svg viewBox="0 0 24 24"><path d="M3 9.5l9-5 9 5"/><path d="M5 9.5V19h14V9.5"/><path d="M10 19v-5.5h4V19"/></svg>',
+    venue:'<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2.5"/><path d="M8 3v3.5M16 3v3.5"/><path d="M3 11h18"/></svg>',
+    bed:'<svg viewBox="0 0 24 24"><path d="M3 19v-8h18v8"/><path d="M3 19h18"/><path d="M3 11V6"/><path d="M7 11a2 2 0 100-4 2 2 0 000 4z"/></svg>',
+    cafe:'<svg viewBox="0 0 24 24"><path d="M4 8h12v6.5A4.5 4.5 0 0111.5 19h-3A4.5 4.5 0 014 14.5V8z"/><path d="M16 9h1.8a2.4 2.4 0 010 4.8H16"/><path d="M4 21h13"/></svg>',
+    pin:'<svg viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 10-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+    down:'<svg viewBox="0 0 24 24"><path d="M12 5v13"/><path d="M6.5 12.5L12 18l5.5-5.5"/></svg>'
+  };
+
+  /* ---------- state ---------- */
+  var ME_DEFAULT = "정성묵 박사님";
+  var store = {
+    get:function(k, d){ try{ var v = window.localStorage.getItem(k); return (v === null || v === "") ? d : v; }catch(e){ return d; } },
+    set:function(k, v){ try{ window.localStorage.setItem(k, v); }catch(e){} }
+  };
+  var ALL_PEOPLE = [];
+  TEAMS.forEach(function(t){ t.members.forEach(function(m){ if(ALL_PEOPLE.indexOf(m) < 0) ALL_PEOPLE.push(m); }); });
+
+  var ME = store.get("kims.me", ME_DEFAULT);
+  if (ALL_PEOPLE.indexOf(ME) < 0) ME = ME_DEFAULT;
+  var SEATS = { out: store.get("kims.seat.out", ""), back: store.get("kims.seat.back", "") };
+  var DAY = "all";
+  var ONLY_MINE = false;
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+  function mapUrl(q){ return "https://map.naver.com/p/search/" + encodeURIComponent(q); }
+  function teamOf(name){
+    for (var i=0;i<TEAMS.length;i++){ if (TEAMS[i].members.indexOf(name) >= 0) return TEAMS[i]; }
+    return null;
+  }
+  function seatLabel(legId){
+    var s = SEATS[legId];
+    if (!s) return "";
+    for (var i=0;i<LEGS.length;i++){ if (LEGS[i].id === legId) return LEGS[i].car + " " + s; }
+    return s;
+  }
+
+  /* ---------- D-day ---------- */
+  (function dday(){
+    var now = new Date();
+    var y = now.getFullYear(), m = now.getMonth(), d = now.getDate();
+    var start = new Date(2026, 10, 18), end = new Date(2026, 10, 20);
+    var today = new Date(y, m, d);
+    var el = $("dday"), txt;
+    var dayMs = 86400000;
+    if (today < start) txt = "D-" + Math.round((start - today) / dayMs);
+    else if (today > end) txt = "일정 종료";
+    else txt = (Math.round((today - start) / dayMs) + 1) + "일차";
+    el.textContent = txt;
+  })();
+
+  /* ---------- timeline ---------- */
+  function dayCard(day){
+    var stops = day.stops, placeCount = 0, moveCount = 0;
+    stops.forEach(function(s){ if (s.move) moveCount++; else placeCount++; });
+    var h = '<section class="daycard" data-day="' + day.id + '">';
+    h += '<div class="dayhead"><span class="dnum">' + day.day + '</span><b>' + esc(day.label) + '</b>';
+    h += '<span class="dsub">지점 ' + placeCount + ' · 이동 ' + moveCount + '회</span></div>';
+    h += '<ul class="stops">';
+    stops.forEach(function(s){
+      if (s.move){
+        h += '<li class="move"><span class="mpill">' + ICONS.down + esc(s.move) + '</span></li>';
+        return;
+      }
+      h += '<li class="stop">';
+      h += '<span class="node k-' + s.k + '">' + (ICONS[s.icon] || ICONS.sight) + '</span>';
+      h += '<div class="sc"><div class="sh">';
+      if (s.time) h += '<span class="tm">' + esc(s.time) + '</span>';
+      h += '<span class="st">' + esc(s.t) + '</span></div>';
+      if (s.d) h += '<div class="sd">' + esc(s.d) + '</div>';
+      if (s.none) h += '<div class="sd none">' + esc(s.none) + '</div>';
+      if (s.tags && s.tags.length){
+        h += '<div class="tags">';
+        s.tags.forEach(function(tg){ h += '<span class="tag ' + tg.c + '">' + esc(tg.x) + '</span>'; });
+        h += '</div>';
+      }
+      if (s.map){
+        h += '<a class="mapb" href="' + mapUrl(s.map) + '" target="_blank" rel="noopener">' + ICONS.pin + '네이버 지도</a>';
+      }
+      h += '</div></li>';
+    });
+    h += '</ul></section>';
+    return h;
+  }
+
+  function renderTimeline(){
+    var wrap = $("timeline");
+    var list = DAYS.filter(function(d){ return DAY === "all" || d.id === DAY; });
+    var cls = "daygrid" + (list.length === 1 ? " single" : "");
+    wrap.innerHTML = '<div class="' + cls + '">' + list.map(dayCard).join("") + '</div>';
+  }
+
+  function renderChips(){
+    var opts = [{id:"all", label:"전체"}].concat(DAYS.map(function(d){
+      return {id:d.id, label:d.short + "(" + d.wd + ")"};
+    }));
+    $("dayChips").innerHTML = opts.map(function(o){
+      return '<button type="button" class="dchip' + (DAY === o.id ? " on" : "") + '" data-day="' + o.id + '"' +
+        (DAY === o.id ? ' aria-current="true"' : '') + '>' + esc(o.label) + '</button>';
+    }).join("");
+  }
+
+  /* ---------- mine bar ---------- */
+  function renderMine(){
+    var tm = teamOf(ME);
+    $("mineTeam").textContent = tm ? ("내 팀 · " + tm.id + "팀 (결제 " + tm.payer + ")") : "내 팀 미지정";
+    var a = seatLabel("out"), b = seatLabel("back");
+    var parts = [];
+    if (a) parts.push("가는 편 " + a);
+    if (b) parts.push("오는 편 " + b);
+    $("mineSeat").textContent = parts.length ? parts.join("  ·  ") : "가는 편·오는 편 좌석 미지정 — 눌러서 고르기";
+  }
+
+  /* ---------- taxi ---------- */
+  function teamCard(t){
+    var mine = (teamOf(ME) && teamOf(ME).id === t.id);
+    var h = '<article class="team' + (mine ? " is-mine" : "") + '">';
+    h += '<div class="teamt"><span class="tnum">' + t.id + '팀</span><span class="cnt">' + t.members.length + '명</span>';
+    h += '<span class="isbadge">내 팀</span><span class="payee">결제 ' + esc(t.payer) + '</span></div>';
+    h += '<div class="members">';
+    t.members.forEach(function(m){
+      var isMe = (m === ME);
+      h += '<button type="button" class="mchip' + (isMe ? " me" : "") + '" data-person="' + esc(m) + '"' +
+        (isMe ? ' aria-pressed="true"' : ' aria-pressed="false"') + '>' + esc(m) + '</button>';
+    });
+    h += '</div></article>';
+    return h;
+  }
+
+  function renderTeams(){
+    var tm = teamOf(ME);
+    $("mePicker").innerHTML = ALL_PEOPLE.map(function(p){
+      var isMe = (p === ME);
+      return '<button type="button" class="pbtn' + (isMe ? " me" : "") + '" data-person="' + esc(p) + '"' +
+        (isMe ? ' aria-pressed="true"' : ' aria-pressed="false"') + '>' + (isMe ? '<span class="dotme"></span>' : '') + esc(p) + '</button>';
+    }).join("");
+    var list = TEAMS.filter(function(t){ return !ONLY_MINE || (tm && tm.id === t.id); });
+    $("teamGrid").innerHTML = list.map(teamCard).join("");
+    $("onlyMine").className = "toggle" + (ONLY_MINE ? " on" : "");
+    $("onlyMine").textContent = ONLY_MINE ? "전체 팀 보기" : "내 팀만 보기";
+  }
+
+  /* ---------- KTX ---------- */
+  function legCard(leg){
+    var h = '<section class="leg">';
+    h += '<div class="legh"><span class="dir">' + esc(leg.dir) + '</span><span class="ldate">' + esc(leg.date) + '</span>';
+    h += '<span class="trainno">' + esc(leg.train) + '</span></div>';
+    h += '<div class="route">';
+    if (leg.time){
+      h += '<span class="t">' + esc(leg.time) + '</span><span class="arrow">→</span><span class="t">' + esc(leg.arrive) + '</span>';
+    } else {
+      h += '<span class="t miss">출발·도착 시각 원문 미표기</span>';
+    }
+    h += '</div>';
+    h += '<div class="legmeta"><span class="tag grey">' + esc(leg.note) + '</span></div>';
+    var seatNo = leg.seats.length - leg.off.length;
+    h += '<div class="carmeta"><b>' + esc(leg.car) + '</b><span class="n">' + seatNo + '석</span></div>';
+    h += '<div class="seatgrid">';
+    leg.seats.forEach(function(s){
+      var off = leg.off.indexOf(s) >= 0;
+      var mine = (SEATS[leg.id] === s);
+      if (off){
+        h += '<span class="seat off" aria-disabled="true">' + esc(s) + '</span>';
+      } else {
+        h += '<button type="button" class="seat' + (mine ? " mine" : "") + '" data-leg="' + leg.id + '" data-seat="' + esc(s) + '"' +
+          (mine ? ' aria-pressed="true"' : ' aria-pressed="false"') + '>' + esc(s) + '<span class="sl">내 자리</span></button>';
+      }
+    });
+    h += '</div>';
+    var lab = seatLabel(leg.id);
+    h += '<div class="minebar">';
+    h += '<span class="now' + (lab ? "" : " empty") + '">' + (lab ? ("내 자리 · " + esc(lab)) : "내 자리 미지정") + '</span>';
+    if (lab){
+      h += '<button type="button" class="ghost" data-clear="' + leg.id + '" style="margin-left:auto; padding:4px 9px; font-size:11px">해제</button>';
+    }
+    h += '</div></section>';
+    return h;
+  }
+
+  function renderKtx(){
+    $("ktxGrid").innerHTML = LEGS.map(legCard).join("");
+  }
+
+  /* ---------- toast ---------- */
+  var toastTimer = null;
+  function toast(msg){
+    var el = $("toast");
+    el.textContent = msg;
+    el.className = "toast on";
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ el.className = "toast"; }, 1900);
+  }
+
+  /* ---------- tabs ---------- */
+  function setTab(name){
+    var panels = {sched:"p-sched", taxi:"p-taxi", ktx:"p-ktx"};
+    Object.keys(panels).forEach(function(k){
+      var p = $(panels[k]);
+      if (p) p.className = "panel" + (k === name ? " on" : "");
+    });
+    var btns = $("tabbar").querySelectorAll("button");
+    for (var i=0;i<btns.length;i++){
+      var on = btns[i].getAttribute("data-tab") === name;
+      btns[i].className = on ? "on" : "";
+      if (on) btns[i].setAttribute("aria-current","page");
+      else btns[i].removeAttribute("aria-current");
+    }
+    window.scrollTo({top:0, behavior:"auto"});
+  }
+
+  $("tabbar").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-tab]");
+    if (b) setTab(b.getAttribute("data-tab"));
+  });
+
+  $("mineBar").addEventListener("click", function(){ setTab("taxi"); });
+
+  $("dayChips").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-day]");
+    if (!b) return;
+    DAY = b.getAttribute("data-day");
+    renderChips(); renderTimeline();
+  });
+
+  function setMe(name){
+    if (ALL_PEOPLE.indexOf(name) < 0) return;
+    ME = name; store.set("kims.me", ME);
+    renderMine(); renderTeams();
+    var tm = teamOf(ME);
+    toast(name + " · " + (tm ? tm.id + "팀 (결제 " + tm.payer + ")" : "팀 없음"));
+  }
+
+  $("p-taxi").addEventListener("click", function(e){
+    var x = e.target.closest("[data-person]");
+    if (x) { setMe(x.getAttribute("data-person")); return; }
+  });
+
+  $("onlyMine").addEventListener("click", function(){
+    ONLY_MINE = !ONLY_MINE;
+    renderTeams();
+  });
+
+  $("p-ktx").addEventListener("click", function(e){
+    var c = e.target.closest("[data-clear]");
+    if (c){
+      var id = c.getAttribute("data-clear");
+      SEATS[id] = ""; store.set("kims.seat." + id, "");
+      renderKtx(); renderMine(); toast("내 자리를 지웠어요");
+      return;
+    }
+    var b = e.target.closest("button[data-seat]");
+    if (!b) return;
+    var leg = b.getAttribute("data-leg"), seat = b.getAttribute("data-seat");
+    SEATS[leg] = (SEATS[leg] === seat) ? "" : seat;
+    store.set("kims.seat." + leg, SEATS[leg]);
+    renderKtx(); renderMine();
+    if (SEATS[leg]) toast("내 자리 · " + seatLabel(leg));
+  });
+
+  $("clearSeats").addEventListener("click", function(){
+    SEATS = {out:"", back:""};
+    store.set("kims.seat.out",""); store.set("kims.seat.back","");
+    renderKtx(); renderMine(); toast("좌석 표시를 모두 지웠어요");
+  });
+
+  /* ---------- copy summary ---------- */
+  function summaryText(){
+    var lines = [];
+    lines.push("[한국재료학회] 2026.11.18(수)–11.20(금) · 창원");
+    DAYS.forEach(function(d){
+      lines.push("");
+      lines.push("■ " + d.label);
+      d.stops.forEach(function(s){
+        if (s.move){ lines.push("  ↓ " + s.move); return; }
+        lines.push("  · " + (s.time ? s.time + " " : "") + s.t + (s.d ? " (" + s.d + ")" : ""));
+      });
+    });
+    lines.push("");
+    lines.push("■ 택시 탑승팀 (매일 공통)");
+    TEAMS.forEach(function(t){
+      lines.push("  " + t.id + "팀 (결제 " + t.payer + "): " + t.members.join(", "));
+    });
+    lines.push("");
+    lines.push("■ KTX 좌석");
+    LEGS.forEach(function(l){
+      lines.push("  " + l.dir + " " + l.date + " " + l.train + " " + (l.time ? l.time + "→" + l.arrive + " " : "") +
+        l.car + " " + l.seats.filter(function(s){ return l.off.indexOf(s) < 0; }).join(", ") + " (" + (l.seats.length - l.off.length) + "석)");
+    });
+    var tm = teamOf(ME);
+    lines.push("");
+    lines.push("내 팀: " + (tm ? tm.id + "팀 (결제 " + tm.payer + ")" : "-") + " / 내 자리: " + (seatLabel("out") || "미지정") + " · " + (seatLabel("back") || "미지정"));
+    return lines.join("\n");
+  }
+
+  $("copyBtn").addEventListener("click", function(){
+    var txt = summaryText();
+    var done = function(){ toast("일정 요약을 복사했어요 — 붙여넣기 하세요"); };
+    var fallback = function(){
+      var ta = document.createElement("textarea");
+      ta.value = txt; ta.setAttribute("readonly","");
+      ta.style.position = "fixed"; ta.style.top = "-1000px"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch(e){ ok = false; }
+      document.body.removeChild(ta);
+      toast(ok ? "일정 요약을 복사했어요 — 붙여넣기 하세요" : "복사가 막혔어요. 길게 눌러 직접 복사해 주세요");
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, fallback);
+    } else { fallback(); }
+  });
+
+  /* ---------- init ---------- */
+  renderChips();
+  renderTimeline();
+  renderMine();
+  renderTeams();
+  renderKtx();
+  setTab("sched");
+})();
+</script>
+</body>
+</html>
