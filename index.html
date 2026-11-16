@@ -915,11 +915,11 @@
   }
   function sessCard(s){
     var v = VENUES[s.v], meta = [], h = "";
-    var slim = (s.kc === "meal");
+    var slim = (s.kc === "meal") || (s.title === s.kind);
     h += '<article class="sess' + (s.teamCodes ? " sess-team" : "") + (slim ? " slim" : "") + '">';
     h += '<div class="sessh"><span class="vb' + v.cls + '">' + esc(v.s) + '</span>';
     h += '<span class="stime">' + esc(s.t) + (s.e ? "~" + esc(s.e) : "") + '</span>';
-    if (slim) h += '<span class="stitle">' + esc(s.title) + '</span>';
+    if (slim && s.kc !== "meal") h += '<span class="stitle">' + esc(s.title) + '</span>';
     h += '<span class="kbadge k-' + s.kc + '">' + esc(s.kind) + '</span></div>';
     if (!slim) h += '<div class="stitle">' + esc(s.title) + '</div>';
     if (v.room) meta.push(v.room + (v.fl ? " (" + v.fl + ")" : ""));
