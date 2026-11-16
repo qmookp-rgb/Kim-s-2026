@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#0A1E3C" />
 <title>한국재료학회 일정 (2026.11.18–20 · 창원)</title>
-<meta name="description" content="한국재료학회 2026.11.18–20 창원 연구팀 일정 — 일자별 타임라인, 택시 탑승 3팀, KTX 좌석표." />
+<meta name="description" content="한국재료학회 2026.11.18–20 창원 연구팀 일정 — 일자별 타임라인, 학회 프로그램·타임테이블, 택시 탑승 3팀, KTX 좌석표." />
 <style>
   :root{
     --navy:#08182F; --navy2:#123A66; --brand:#1B4F8A; --brand2:#2A6FB0;
@@ -189,10 +189,78 @@
   .minebar .now{font-size:11.5px; font-weight:800; color:#12457C;}
   .minebar .now.empty{color:var(--muted); font-weight:700;}
 
+  /* ---------- program ---------- */
+  .pfilters{position:sticky; top:0; z-index:20; padding:7px 0 8px; margin:-6px 0 8px; background:var(--bg);}
+  .pfilters::after{content:""; position:absolute; left:0; right:0; bottom:-9px; height:9px;
+    background:linear-gradient(180deg, var(--bg), rgba(238,242,247,0)); pointer-events:none;}
+  .fbox{background:#FFFFFF; border:1px solid var(--line); border-radius:16px; padding:8px;
+    box-shadow:0 6px 18px -18px rgba(15,28,46,.8);}
+  .fsearch{display:flex; align-items:center; gap:7px; margin-top:7px; padding:6px 10px;
+    background:#F6F9FC; border:1px solid var(--line2); border-radius:11px;}
+  .fsearch svg{width:15px; height:15px; flex:0 0 15px; stroke:var(--muted); fill:none; stroke-width:2.2; stroke-linecap:round;}
+  .fsearch input{flex:1; min-width:0; border:0; background:transparent; font:inherit; font-size:13px;
+    color:var(--ink); outline:none; letter-spacing:-0.02em; padding:2px 0;}
+  .fsearch input::placeholder{color:#93A6B9;}
+  .vchips{display:flex; flex-wrap:wrap; gap:5px; padding:8px 0 1px;}
+  .vchip{flex:0 0 auto; font:inherit; font-size:11.5px; font-weight:800; color:#5A7188; background:#F4F8FC;
+    border:1px solid var(--line2); border-radius:999px; padding:5px 11px; cursor:pointer; letter-spacing:-0.02em;}
+  .vchip.on{background:var(--brand); border-color:var(--brand); color:#FFFFFF;}
+  .pcount{display:flex; justify-content:space-between; gap:8px; margin:0 2px 8px; font-size:11.5px; font-weight:700; color:var(--muted);}
+  .pcount b{color:var(--brand); font-weight:800;}
+
+  .sess{background:#FFFFFF; border:1px solid var(--line); border-radius:15px; padding:11px 12px;
+    box-shadow:var(--shadow); margin-bottom:8px;}
+  .sess.sess-team{border-color:#BBD8F3; box-shadow:0 0 0 2px #E4EFFA, var(--shadow);}
+  .sess.slim{padding:9px 12px;}
+  .sess.slim .stitle{margin-top:0; font-size:12.5px; font-weight:700; color:var(--slate);}
+  .sess.slim .sessh{flex-wrap:nowrap;}
+  .sessh{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+  .vb{font-size:11px; font-weight:800; color:#FFFFFF; background:var(--navy2); border-radius:7px; padding:2px 7px; white-space:nowrap;}
+  .vb.p{background:var(--plat);} .vb.h{background:#5C6B7E;}
+  .stime{font-size:11.5px; font-weight:800; color:#0F3B66; background:#E9F1FA; border:1px solid #D3E2F2;
+    border-radius:7px; padding:1px 6px; font-variant-numeric:tabular-nums; letter-spacing:0; white-space:nowrap;}
+  .kbadge{font-size:10.5px; font-weight:800; border-radius:6px; padding:1px 6px; border:1px solid transparent; margin-left:auto; white-space:nowrap;}
+  .k-sym{background:var(--platbg); color:var(--plat); border-color:#E4D5F0;}
+  .k-reg{background:#EAF2FB; color:#12457C; border-color:#D3E2F2;}
+  .k-inv{background:var(--tealbg); color:var(--teal); border-color:#CBE7E3;}
+  .k-post{background:var(--amberbg); color:var(--amber); border-color:var(--amberline);}
+  .k-cer{background:#FDECEF; color:#9B2F45; border-color:#F6D5DC;}
+  .k-meal{background:#F1F4F8; color:var(--muted); border-color:var(--line);}
+  .stitle{font-size:13.5px; font-weight:800; letter-spacing:-0.025em; margin-top:6px; line-height:1.38;}
+  .smeta{font-size:11.5px; color:var(--slate); margin-top:4px; line-height:1.55;}
+  .smeta .sep{color:#B9C8D8; margin:0 6px;}
+  .invs{display:flex; gap:5px; flex-wrap:wrap; margin-top:7px;}
+  .inv{font-size:11px; font-weight:700; color:#22394F; background:#F4F8FC; border:1px solid var(--line); border-radius:7px; padding:2px 7px;}
+  .inv b{font-weight:800;}
+  .pflag{display:inline-block; margin-top:7px; font-size:10.5px; font-weight:800; color:var(--brand);
+    background:#E4EFFA; border:1px solid #C9DEF4; border-radius:6px; padding:1px 6px;}
+  .sbreak{display:flex; align-items:center; gap:8px; margin:10px 2px 10px; font-size:11px; font-weight:700; color:#93A6B9;}
+  .sbreak::before, .sbreak::after{content:""; flex:1; height:1px; background:var(--line2);}
+  .sessnone{font-size:12.5px; color:var(--muted); text-align:center; padding:22px 0;}
+
+  .tp{background:#FFFFFF; border:1px solid var(--line); border-radius:14px; padding:11px 12px; margin-top:8px; box-shadow:var(--shadow);}
+  .tp:first-of-type{margin-top:0;}
+  .tph{display:flex; align-items:center; gap:7px; flex-wrap:wrap;}
+  .pcode{font-size:11px; font-weight:800; color:#FFFFFF; background:var(--brand); border-radius:6px; padding:2px 7px;}
+  .tptitle{font-size:12.5px; font-weight:800; margin-top:6px; line-height:1.45; letter-spacing:-0.01em;}
+  .tpmeta{font-size:11.5px; color:var(--slate); margin-top:4px; line-height:1.5;}
+  .linkrow{display:flex; align-items:center; gap:9px; padding:9px 0; border-bottom:1px solid var(--line); text-decoration:none; color:inherit;}
+  .linkrow:last-child{border-bottom:0; padding-bottom:0;}
+  .linkrow .lico{flex:0 0 30px; width:30px; height:30px; border-radius:9px; display:grid; place-items:center; background:#EAF2FB; color:#12457C;}
+  .linkrow .lico svg{width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+  .linkrow .lt{flex:1; min-width:0;}
+  .linkrow .l1{display:block; font-size:12.5px; font-weight:800; letter-spacing:-0.02em;}
+  .linkrow .l2{display:block; font-size:11px; color:var(--muted); margin-top:2px; line-height:1.45;}
+  .linkrow .chev{color:#9BB0C6; font-size:15px;}
+  .statgrid{display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-top:9px;}
+  .stat{background:#F6F9FC; border:1px solid var(--line); border-radius:11px; padding:8px 9px;}
+  .stat b{display:block; font-size:14px; font-weight:800; color:var(--brand); letter-spacing:-0.02em;}
+  .stat span{font-size:10.5px; font-weight:700; color:var(--muted);}
+
   /* ---------- bottom nav ---------- */
   nav.tabbar{
     position:fixed; left:50%; transform:translateX(-50%); bottom:0; width:100%; max-width:560px; z-index:40;
-    display:grid; grid-template-columns:repeat(3, 1fr);
+    display:grid; grid-template-columns:repeat(4, 1fr);
     background:rgba(255,255,255,.97); backdrop-filter:blur(10px); border-top:1px solid var(--line);
     padding:7px 8px calc(7px + env(safe-area-inset-bottom)); box-shadow:0 -8px 24px -20px rgba(10,30,60,.9);
   }
@@ -221,6 +289,14 @@
     .teamgrid{grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));}
     .ktxgrid{display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:start;}
     .ktxgrid .leg{margin-bottom:0;}
+    #progList{display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:start;}
+    #progList .sess{margin-bottom:0;}
+    #progList .sbreak{grid-column:1 / -1; margin:2px 2px;}
+    #progList .sessnone{grid-column:1 / -1;}
+    #teamPosts{display:grid; grid-template-columns:repeat(3,1fr); gap:9px;}
+    #teamPosts .tp{margin-top:0;}
+    #progDays{max-width:420px;}
+    .pfilters .fbox{max-width:760px;}
     .chipsbar{top:0;}
     nav.tabbar{max-width:640px; border-radius:18px 18px 0 0;}
     .mine{max-width:520px;}
@@ -263,7 +339,7 @@
       <div id="timeline"></div>
       <div class="notice" style="margin-top:2px">
         <b>원문 그대로 표기</b><br>
-        일정은 이은정 님이 만든 PPT(<b>한국재료학회 일정_이은정_1.pptx</b>) 원문을 그대로 옮겼습니다. 원문에 시각이 없는 일정은 시간을 비워 두었고, 숙소 이름은 원문에 없어 표기하지 않았습니다(지도 링크도 없음).
+        일정은 이은정 님이 만든 PPT(<b>한국재료학회 일정_이은정_1.pptx</b>) 원문을 그대로 옮겼습니다. 원문에 시각이 없는 일정은 시간을 비워 두었습니다. 숙소는 <b>브라운도트호텔 마산양덕점</b>(정성묵 님 확인)으로 표기했고, 지도 버튼으로 위치를 열 수 있습니다.
       </div>
       <div class="notice" style="margin-top:8px">
         <b>지도 버튼</b><br>
@@ -293,7 +369,90 @@
       </div>
     </section>
 
-    <!-- ============ 3. KTX ============ -->
+    <!-- ============ 3. 프로그램 ============ -->
+    <section class="panel" id="p-prog">
+      <div class="card" id="teamCard">
+        <h2>우리 팀 발표<span class="suben">한국화학연구원(KRICT) · 포스터 3편</span></h2>
+        <p class="lead">프로그램북(20차 수정) 저자 색인에서 팀 이름으로 확인된 발표입니다. <b>포스터 발표 I</b> · 11/19(목) 10:30–11:50 · 301+302(3층).</p>
+        <div id="teamPosts" style="margin-top:9px"></div>
+        <div class="notice" style="margin-top:9px">
+          <b>구두발표는 없음</b> — 팀 11명 이름으로는 위 포스터 3편만 검색되었습니다(구두발표 순서 70편·좌장 목록에도 없음). 확인되지 않은 발표는 넣지 않았습니다.
+        </div>
+      </div>
+
+      <div class="pfilters">
+        <div class="fbox">
+          <div class="dchips" id="progDays" role="tablist" aria-label="학회 일자 선택"></div>
+          <label class="fsearch">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+            <input type="search" id="progSearch" placeholder="분과 · 심포지엄 · 발표자 검색" autocomplete="off" aria-label="프로그램 검색" />
+          </label>
+          <div class="vchips" id="progVenues" role="group" aria-label="발표장 필터"></div>
+        </div>
+      </div>
+
+      <div class="pcount"><span id="progCount">–</span><span id="progReg"></span></div>
+      <div id="progList"></div>
+
+      <div class="card" style="margin-top:4px">
+        <h2>공식 운영 안내<span class="suben">학회 공지·프로그램집 기준</span></h2>
+        <div class="notice" style="margin-top:9px">
+          <b>11/18(수)는 공식 발표 없음</b><br>
+          학회 공지(209) — “공식 일정은 목요일 오전부터 시작됩니다. 현장등록은 11/19 목요일 오전 8시 30분부터 가능하며 수요일은 어려움이 있사오니 목요일 오전에 등록을 부탁드립니다.”
+        </div>
+        <div class="notice" style="margin-top:8px">
+          <b>현장등록</b> — 11/19(목) 08:30~18:00 · 11/20(금) 08:30~11:00<br>
+          장소: 창원컨벤션센터 <b>3층 등록데스크</b><br>
+          등록비: 정회원 260,000 / 비회원 310,000 / 학생회원 140,000 / 학생비회원 160,000원
+        </div>
+        <div class="notice" style="margin-top:8px">
+          <b>장소</b> — 경남 창원시 성산구 원이대로 362 창원컨벤션센터(CECO) · 055-212-1000<br>
+          발표장: <b>A</b> 컨벤션홀III(3층) / <b>B~H</b> 601~607(6층) / <b>포스터</b> 301+302(3층)
+        </div>
+        <div class="statgrid">
+          <div class="stat"><b>351편</b><span>발표 논문</span></div>
+          <div class="stat"><b>196편</b><span>포스터 (Ⅰ·Ⅱ)</span></div>
+          <div class="stat"><b>70편</b><span>구두발표</span></div>
+          <div class="stat"><b>84편</b><span>초청강연(심포지엄 75 + 일반 9)</span></div>
+        </div>
+        <div class="notice" style="margin-top:8px">
+          <b>발표 시간</b> — 초청강연 25분 또는 20분(질의응답 포함), 일반발표 15분. 발표 파일은 USB로 지참.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>공식 자료 바로가기<span class="suben">학회 홈페이지 · 프로그램집 PDF</span></h2>
+        <div style="margin-top:8px">
+          <a class="linkrow" href="https://conference.mrs-k.or.kr/bbs/notice/209/" target="_blank" rel="noopener">
+            <span class="lico"><svg viewBox="0 0 24 24"><path d="M14 3v5h5"/><path d="M19 8.5V20a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1h7z"/><path d="M9 13h6M9 17h4"/></svg></span>
+            <span class="lt"><span class="l1">프로그램북 PDF (공지 209)</span><span class="l2">[재료]한국재료학회26추계_프로그램북-[20차수정].pdf</span></span>
+            <span class="chev">›</span>
+          </a>
+          <a class="linkrow" href="https://conference.mrs-k.or.kr/bbs/notice/207/" target="_blank" rel="noopener">
+            <span class="lico"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2.5"/><path d="M3 12h18M8 3v4M16 3v4"/></svg></span>
+            <span class="lt"><span class="l1">시간표 · 구두발표 순서 (공지 207)</span><span class="l2">2026 추계시간표(1016).pdf · 2026 추계 구두발표 순서.pdf</span></span>
+            <span class="chev">›</span>
+          </a>
+          <a class="linkrow" href="https://conference.mrs-k.or.kr/confs/info/program/" target="_blank" rel="noopener">
+            <span class="lico"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 9v10"/></svg></span>
+            <span class="lt"><span class="l1">특별심포지엄 · 프로그램 안내</span><span class="l2">conference.mrs-k.or.kr/confs/info/program</span></span>
+            <span class="chev">›</span>
+          </a>
+          <a class="linkrow" href="https://conference.mrs-k.or.kr/confs/info/introduction/" target="_blank" rel="noopener">
+            <span class="lico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg></span>
+            <span class="lt"><span class="l1">학술분과 안내 (A~H)</span><span class="l2">전자/반도체 · 소프트/바이오 · 에너지 · 첨단구조 · AI/전산 · 광전자/디스플레이 · 센서/환경 · 광전기화학</span></span>
+            <span class="chev">›</span>
+          </a>
+          <a class="linkrow" href="https://www.mrs-k.or.kr/" target="_blank" rel="noopener">
+            <span class="lico"><svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/></svg></span>
+            <span class="lt"><span class="l1">한국재료학회 홈페이지</span><span class="l2">mrs-k.or.kr</span></span>
+            <span class="chev">›</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. KTX ============ -->
     <section class="panel" id="p-ktx">
       <div class="card">
         <h2>KTX 좌석표<span class="suben">가는 편 9석 · 오는 편 7석</span></h2>
@@ -315,7 +474,8 @@
   </main>
 
   <footer class="foot">
-    출처 — 한국재료학회 일정_이은정_1.pptx (원문 텍스트·표 그대로)<br>
+    출처 — 일정·좌석·팀: 한국재료학회 일정_이은정_1.pptx (원문 텍스트·표 그대로)<br>
+    프로그램: 2026 한국재료학회 추계학술대회 프로그램북 [20차수정] · 공지 209/207<br>
     일정·좌석·팀은 현장 사정에 따라 바뀔 수 있습니다. 개인 일정은 당일 다시 확인하세요.
   </footer>
 </div>
@@ -328,6 +488,10 @@
   <button data-tab="taxi" type="button">
     <svg viewBox="0 0 24 24"><path d="M5 18h14M4 18v-4.2L6.2 8h11.6L20 13.8V18"/><path d="M6.2 8h11.6"/><circle cx="7.6" cy="15" r="1.1"/><circle cx="16.4" cy="15" r="1.1"/></svg>
     택시팀
+  </button>
+  <button data-tab="prog" type="button">
+    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9h18"/><path d="M9 9v12M15 9v12"/><path d="M3 14.5h18"/></svg>
+    프로그램
   </button>
   <button data-tab="ktx" type="button">
     <svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="10" rx="2.5"/><path d="M3 12h18"/><path d="M8 19l1.6-3M16 19l-1.6-3"/></svg>
@@ -343,7 +507,7 @@
 
   /* =========================================================
      DATA — 출처: 한국재료학회 일정_이은정_1.pptx (슬라이드 2~4)
-     원문에 없는 숙소명·시각은 넣지 않습니다.
+     시각은 원문 그대로. 숙소명은 확인된 값(브라운도트호텔 마산양덕점)만 표기.
      ========================================================= */
   var DAYS = [
     {
@@ -352,7 +516,7 @@
         {k:"train", icon:"train", time:"11:22", t:"창원중앙역 도착", d:"KTX 205 · 09:29 → 11:22",
          tags:[{c:"amber", x:"김태수 박사님 따로 출발"}], map:"창원중앙역"},
         {move:"이동 20분"},
-        {k:"stay", icon:"bed", t:"숙소", d:"2층 프론트에 짐 보관", none:"숙소명은 원문에 표기 없음"},
+        {k:"stay", icon:"bed", t:"숙소", d:"브라운도트호텔 마산양덕점 · 2층 프론트에 짐 보관", map:"브라운도트호텔 마산양덕점"},
         {move:"이동 11분"},
         {k:"food", icon:"food", time:"12:40", t:"점심식사 · 정일옥", d:"12:40 예약", map:"정일옥 창원"},
         {move:"걸어서 25분"},
@@ -362,26 +526,26 @@
         {move:"이동 26분"},
         {k:"food", icon:"food", t:"저녁식사 · 본질닭도리탕", map:"본질닭도리탕 창원"},
         {move:"걸어서 20분"},
-        {k:"stay", icon:"bed", t:"숙소"}
+        {k:"stay", icon:"bed", t:"숙소", d:"브라운도트호텔 마산양덕점", map:"브라운도트호텔 마산양덕점"}
       ]
     },
     {
       id:"d2", day:"DAY 2", label:"11월 19일 (목)", short:"19일", wd:"목", date:"11.19",
       stops:[
-        {k:"stay", icon:"bed", t:"숙소 출발"},
+        {k:"stay", icon:"bed", t:"숙소 출발", d:"브라운도트호텔 마산양덕점", map:"브라운도트호텔 마산양덕점"},
         {move:"이동 15분"},
         {k:"venue", icon:"venue", t:"창원컨벤션센터 (CECO)", d:"포스터 발표 10:30 – 11:50",
          tags:[{c:"blue", x:"포스터 발표"}], map:"창원컨벤션센터"},
         {move:"차량 5분 / 걸어서 35분"},
         {k:"food", icon:"food", t:"저녁식사 · 초가집", map:"초가집 창원"},
         {move:"이동 20분"},
-        {k:"stay", icon:"bed", t:"숙소"}
+        {k:"stay", icon:"bed", t:"숙소", d:"브라운도트호텔 마산양덕점", map:"브라운도트호텔 마산양덕점"}
       ]
     },
     {
       id:"d3", day:"DAY 3", label:"11월 20일 (금)", short:"20일", wd:"금", date:"11.20",
       stops:[
-        {k:"stay", icon:"bed", t:"숙소 출발"},
+        {k:"stay", icon:"bed", t:"숙소 출발", d:"브라운도트호텔 마산양덕점", map:"브라운도트호텔 마산양덕점"},
         {move:"이동 15분"},
         {k:"venue", icon:"venue", t:"창원컨벤션센터 (CECO)", d:"~12:30까지", map:"창원컨벤션센터"},
         {move:"이동 6분"},
@@ -423,6 +587,127 @@
     pin:'<svg viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-11a7 7 0 10-14 0c0 5.6 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
     down:'<svg viewBox="0 0 24 24"><path d="M12 5v13"/><path d="M6.5 12.5L12 18l5.5-5.5"/></svg>'
   };
+
+  /* =========================================================
+     PROGRAM — 출처: 프로그램북 [20차수정]
+       · 종합 시간표(책 5~7쪽 = PDF 9~11쪽)
+       · 행사안내(책 55~56쪽) · 기조강연·포스터 섹션
+     시간/발표장/좌장/발표번호는 프로그램북에 적힌 그대로.
+     ========================================================= */
+  var VENUES = {
+    A:{s:"A발표회장", room:"컨벤션홀III", fl:"3층", cls:""},
+    B:{s:"B발표회장", room:"601", fl:"6층", cls:""},
+    C:{s:"C발표회장", room:"602", fl:"6층", cls:""},
+    D:{s:"D발표회장", room:"603", fl:"6층", cls:""},
+    E:{s:"E발표회장", room:"604", fl:"6층", cls:""},
+    F:{s:"F발표회장", room:"605", fl:"6층", cls:""},
+    G:{s:"G발표회장", room:"606", fl:"6층", cls:""},
+    H:{s:"H발표회장", room:"607", fl:"6층", cls:""},
+    P:{s:"포스터발표장", room:"301+302", fl:"3층", cls:" p"},
+    H1:{s:"컨벤션홀I", room:"", fl:"", cls:" h"},
+    H2:{s:"컨벤션홀I,II", room:"", fl:"", cls:" h"}
+  };
+  var VORDER = {A:0,B:1,C:2,D:3,E:4,F:5,G:6,H:7,P:8,H1:9,H2:9,ALL:10};
+
+  var PROG_DAYS = {
+    d19:{
+      label:"11월 19일 (목)", short:"19일", wd:"목",
+      reg:"현장등록 08:30–18:00 · 3층 등록데스크",
+      list:[
+        {t:"09:00",e:"12:05",v:"A",kind:"심포지엄",kc:"sym",title:"미래 전략산업을 위한 첨단 소재기술 심포지엄",
+         chairs:["이준혁 (KAERI)","이순일 (창원대)"],codes:"SH1~SH4 / SH5~SH7"},
+        {t:"09:00",e:"12:00",v:"B",kind:"심포지엄",kc:"sym",title:"자기냉각기술 현안과 미래",
+         chairs:["김종우 (KIMS)"],codes:"SB1~SB8"},
+        {t:"09:00",e:"11:50",v:"C",kind:"심포지엄",kc:"sym",title:"나노소재 공정 및 시뮬레이션",
+         chairs:["이정우 (부산대)","김세윤 (경상국립대)"],codes:"SC1~SC4 / SC5~SC8"},
+        {t:"09:00",e:"10:00",v:"D",kind:"정규세션",kc:"reg",title:"전자/반도체 재료 I",
+         chairs:["이기영 (홍익대)"],codes:"A1~A4"},
+        {t:"09:00",e:"10:00",v:"G",kind:"정규세션",kc:"reg",title:"첨단구조 재료 I",
+         chairs:["김세훈 (KATECH)"],codes:"D1~D4"},
+        {t:"09:15",e:"10:00",v:"F",kind:"정규세션",kc:"reg",title:"에너지 재료 I",
+         chairs:["유재수 (경희대)"],codes:"C2~C4"},
+        {t:"09:00",e:"10:35",v:"H",kind:"초청강연",kc:"inv",title:"광전자/디스플레이 재료 I",
+         chairs:["이승진 (KENTECH)"],codes:"F2~F3",
+         inv:[{c:"FI-1",n:"곽도현",a:"DGIST"},{c:"FI-2",n:"임경근",a:"KRISS"},{c:"FI-3",n:"김형석",a:"가천대"}]},
+        {t:"10:10",e:"11:10",v:"D",kind:"정규세션",kc:"reg",title:"전자/반도체 재료 II",
+         chairs:["김효정 (세종대)"],codes:"A5~A8"},
+        {t:"10:10",e:"11:10",v:"G",kind:"정규세션",kc:"reg",title:"소프트/바이오 소재 I",
+         chairs:["신정호 (한국항공대)"],codes:"B1~B4"},
+        {t:"10:25",e:"11:55",v:"F",kind:"정규세션",kc:"reg",title:"에너지 재료 II",
+         chairs:["정경화 (KENTECH)"],codes:"C6~C11"},
+        {t:"10:30",e:"11:15",v:"E",kind:"정규세션",kc:"reg",title:"센서/환경 재료 I",
+         chairs:["김장환 (아주대)"],codes:"G1~G3"},
+        {t:"10:45",e:"12:05",v:"H",kind:"초청강연",kc:"inv",title:"광전자/디스플레이 재료 II",
+         chairs:["조창순 (POSTECH)"],codes:"F4~F5",
+         inv:[{c:"FI-4",n:"김창조",a:"울산대"},{c:"FI-5",n:"남승민",a:"한양대"}]},
+        {t:"10:30",e:"11:50",v:"P",kind:"포스터",kc:"post",title:"포스터 발표 I",
+         codes:"P1~P100",n:"부착 09:00~12:00 · 집중심사 10:30~11:50",teamCodes:["P-8","P-46","P-80"],
+         auth:"최병선 최영민 정성묵 이수연 김태수 김지연 조두호 박장웅 이원호"},
+        {t:"11:40",e:"13:30",v:"H2",kind:"중식",kc:"meal",title:"중식"},
+        {t:"13:30",e:"17:00",v:"A",kind:"심포지엄",kc:"sym",title:"한국재료연구원 특별심포지엄 (50주년 기념)",
+         chairs:["김형욱 (KIMS)","정대용 (인하대)"],codes:"SF1~SF4 / SF5~SF10"},
+        {t:"13:30",e:"15:05",v:"B",kind:"초청강연",kc:"inv",title:"광전자/디스플레이 재료 III",
+         chairs:["조힘찬 (KAIST)"],codes:"F6~F8",
+         inv:[{c:"FI-6",n:"심지훈",a:"KAIST"},{c:"FI-7",n:"김홍혁",a:"한양대"}]},
+        {t:"13:30",e:"17:00",v:"C",kind:"심포지엄",kc:"sym",title:"차세대 반도체 배선소재 및 공정기술",
+         chairs:["이기영 (홍익대)","최창환 (한양대)"],codes:"SA1~SA8"},
+        {t:"13:30",e:"15:10",v:"D",kind:"초청강연",kc:"inv",title:"광전기화학 재료 I",
+         chairs:["정경화 (KENTECH)"],codes:"H1~H5",
+         inv:[{c:"HI-1",n:"구본율",a:"강원대"}]},
+        {t:"13:30",e:"17:00",v:"E",kind:"심포지엄",kc:"sym",title:"공급망 다변화 및 비희소금속 자성부품 기반 전력변환장치 기술개발",
+         chairs:["이상현 (㈜창성)"],codes:"SE1~SE6",n:"Closed session"},
+        {t:"13:30",e:"16:10",v:"G",kind:"콜로키움",kc:"sym",title:"콜로키움: 차세대 인공지능 컴퓨팅용 소재 및 소자",
+         chairs:["박태준 (고려대)"],codes:"SJ1~SJ6"},
+        {t:"13:30",e:"16:30",v:"H",kind:"심포지엄",kc:"sym",title:"신진연구자 특별심포지엄",
+         chairs:["구교진 (국립한밭대)","전상은 (경북대)"],codes:"SG1~SG11"},
+        {t:"14:00",e:"15:40",v:"F",kind:"심포지엄",kc:"sym",title:"차세대뿌리기술 융합 심포지엄",
+         chairs:["강정석 (KITECH)"],codes:"SI1~SI6"},
+        {t:"15:05",v:"ALL",brk:"15:05~15:15 휴식"},
+        {t:"15:15",e:"16:25",v:"B",kind:"초청강연",kc:"inv",title:"광전자/디스플레이 재료 IV",
+         chairs:["곽도현 (DGIST)"],codes:"F9~F11",
+         inv:[{c:"FI-8",n:"정영광",a:"KENTECH"}]},
+        {t:"15:30",e:"16:50",v:"P",kind:"포스터",kc:"post",title:"포스터 발표 II",
+         codes:"P101~P196",n:"부착 14:00~17:00 · 집중심사 15:30~16:50"},
+        {t:"17:00",v:"ALL",brk:"17:00~17:10 휴식"},
+        {t:"17:10",e:"17:50",v:"A",kind:"기조강연",kc:"cer",title:"한국재료연구원과 국가 미래소재 확보 방안",
+         chairs:["정종율 (충남대)"],codes:"PT-1",speaker:"최철진 (한국재료연구원)"},
+        {t:"17:50",e:"18:20",v:"A",kind:"정기총회",kc:"cer",title:"정기총회"},
+        {t:"18:20",v:"ALL",brk:"18:20~18:30 휴식"},
+        {t:"18:30",v:"H1",kind:"간친회",kc:"cer",title:"간친회 (수상식 포함)",n:"정회원만 입장 가능(입장 인원 제한)"}
+      ]
+    },
+    d20:{
+      label:"11월 20일 (금)", short:"20일", wd:"금",
+      reg:"현장등록 08:30–11:00 · 3층 등록데스크",
+      list:[
+        {t:"09:00",e:"10:15",v:"A",kind:"정규세션",kc:"reg",title:"에너지 재료 III",
+         chairs:["김천중 (충남대)"],codes:"C12~C16"},
+        {t:"09:00",e:"09:45",v:"B",kind:"정규세션",kc:"reg",title:"센서/환경 재료 II",
+         chairs:["박민수 (단국대)"],codes:"G4~G6"},
+        {t:"09:15",e:"10:00",v:"D",kind:"정규세션",kc:"reg",title:"전자/반도체 재료 III",
+         chairs:["이병훈 (이화여대)"],codes:"A10~A12"},
+        {t:"09:00",e:"11:30",v:"E",kind:"정규세션",kc:"reg",title:"AI/전산 재료 I",
+         chairs:["신용진 (단국대)","홍기하 (국립한밭대)"],codes:"E1~E10"},
+        {t:"09:00",e:"09:45",v:"F",kind:"정규세션",kc:"reg",title:"첨단구조 재료 II",
+         chairs:["정영길 (KATECH)"],codes:"D5~D7"},
+        {t:"09:30",e:"11:55",v:"C",kind:"심포지엄",kc:"sym",title:"여성 재료학자 특별 심포지엄",
+         chairs:["조소혜 (KIST)"],codes:"SD1~SD5"},
+        {t:"12:00",e:"12:30",v:"A",kind:"시상식",kc:"cer",title:"우수발표논문 및 포스터 시상식 · 경품 추첨 · 폐회"}
+      ]
+    }
+  };
+
+  var TEAM_POSTS = [
+    {code:"P-8", title:"Solvent Engineering of Hole Transport Layers for Efficient Quantum Dot Light-Emitting Diodes",
+     authors:"최병선, 최영민, 정성묵, 이수연, 김태수, 이원호",
+     aff:"한국화학연구원 · 국립금오공과대 · UST"},
+    {code:"P-46", title:"Control of Electrical Properties of Stretchable Silver Electrodes via Secondary-Fluid-Assisted Capillary Suspension",
+     authors:"김지연, 정성묵",
+     aff:"한국화학연구원"},
+    {code:"P-80", title:"Microgel-Embedded Conductive Elastomers for High-Performance Wearable Bioelectrodes",
+     authors:"조두호, 최영민, 이수연, 김태수, 박장웅, 정성묵",
+     aff:"한국화학연구원 · 연세대"}
+  ];
 
   /* ---------- state ---------- */
   var ME_DEFAULT = "정성묵 박사님";
@@ -599,6 +884,96 @@
     $("ktxGrid").innerHTML = LEGS.map(legCard).join("");
   }
 
+  /* ---------- program ---------- */
+  var PDAY = "d19", PVEN = "all", PQ = "";
+  var VCHIPS = [
+    {id:"all", label:"전체"}, {id:"A", label:"A"}, {id:"B", label:"B"}, {id:"C", label:"C"},
+    {id:"D", label:"D"}, {id:"E", label:"E"}, {id:"F", label:"F"}, {id:"G", label:"G"},
+    {id:"H", label:"H"}, {id:"P", label:"포스터"}, {id:"hall", label:"컨벤션홀I"}
+  ];
+
+  function venueMatch(s){
+    if (PVEN === "all") return true;
+    if (PVEN === "hall") return s.v === "H1" || s.v === "H2";
+    return s.v === PVEN;
+  }
+  function progItems(){
+    var q = PQ.replace(/^\s+|\s+$/g, "").toLowerCase();
+    return PROG_DAYS[PDAY].list.filter(function(s){
+      if (s.brk) return (PVEN === "all") && !q;
+      if (!venueMatch(s)) return false;
+      if (!q) return true;
+      var hay = [s.title || "", s.codes || "", s.kind || "", s.speaker || "", s.n || "", s.auth || "",
+        (s.chairs || []).join(" "), (s.teamCodes || []).join(" "),
+        (s.inv || []).map(function(i){ return i.c + " " + i.n + " " + i.a; }).join(" ")
+      ].join(" ").toLowerCase();
+      return hay.indexOf(q) >= 0;
+    }).sort(function(a, b){
+      if (a.t !== b.t) return a.t < b.t ? -1 : 1;
+      return (VORDER[a.v] || 0) - (VORDER[b.v] || 0);
+    });
+  }
+  function sessCard(s){
+    var v = VENUES[s.v], meta = [], h = "";
+    var slim = (s.kc === "meal");
+    h += '<article class="sess' + (s.teamCodes ? " sess-team" : "") + (slim ? " slim" : "") + '">';
+    h += '<div class="sessh"><span class="vb' + v.cls + '">' + esc(v.s) + '</span>';
+    h += '<span class="stime">' + esc(s.t) + (s.e ? "~" + esc(s.e) : "") + '</span>';
+    if (slim) h += '<span class="stitle">' + esc(s.title) + '</span>';
+    h += '<span class="kbadge k-' + s.kc + '">' + esc(s.kind) + '</span></div>';
+    if (!slim) h += '<div class="stitle">' + esc(s.title) + '</div>';
+    if (v.room) meta.push(v.room + (v.fl ? " (" + v.fl + ")" : ""));
+    if (s.speaker) meta.push("발표 " + s.speaker);
+    if (s.chairs && s.chairs.length) meta.push("좌장 " + s.chairs.join(", "));
+    if (s.codes) meta.push(s.codes);
+    if (meta.length) h += '<div class="smeta">' + meta.map(esc).join('<span class="sep">·</span>') + '</div>';
+    if (s.n) h += '<div class="smeta">' + esc(s.n) + '</div>';
+    if (s.inv && s.inv.length){
+      h += '<div class="invs">';
+      s.inv.forEach(function(i){
+        h += '<span class="inv"><b>' + esc(i.c) + '</b> ' + esc(i.n) + ' · ' + esc(i.a) + '</span>';
+      });
+      h += '</div>';
+    }
+    if (s.teamCodes){
+      h += '<span class="pflag">우리 팀 ' + esc(s.teamCodes.join(" · ")) + '</span>';
+    }
+    h += '</article>';
+    return h;
+  }
+  function renderProg(){
+    var d = PROG_DAYS[PDAY];
+    var dayOpts = Object.keys(PROG_DAYS).map(function(k){
+      var o = PROG_DAYS[k];
+      return '<button type="button" class="dchip' + (PDAY === k ? " on" : "") + '" data-pday="' + k + '"' +
+        (PDAY === k ? ' aria-current="true"' : '') + '>' + esc(o.short + " (" + o.wd + ")") + '</button>';
+    }).join("");
+    $("progDays").innerHTML = dayOpts;
+    $("progVenues").innerHTML = VCHIPS.map(function(c){
+      return '<button type="button" class="vchip' + (PVEN === c.id ? " on" : "") + '" data-pven="' + c.id + '"' +
+        (PVEN === c.id ? ' aria-pressed="true"' : ' aria-pressed="false"') + '>' + esc(c.label) + '</button>';
+    }).join("");
+
+    var items = progItems();
+    var n = items.filter(function(s){ return !s.brk; }).length;
+    $("progCount").innerHTML = '<b>' + esc(d.label) + '</b> · 세션 ' + n + '개';
+    $("progReg").textContent = d.reg;
+
+    var list = items.filter(function(s){ return !s.brk; });
+    $("progList").innerHTML = list.length
+      ? items.map(function(s){ return s.brk ? '<div class="sbreak">' + esc(s.brk) + '</div>' : sessCard(s); }).join("")
+      : '<div class="sessnone">조건에 맞는 세션이 없습니다.</div>';
+  }
+  function renderTeamPosts(){
+    $("teamPosts").innerHTML = TEAM_POSTS.map(function(p){
+      return '<article class="tp"><div class="tph"><span class="pcode">' + esc(p.code) + '</span>' +
+        '<span class="stime">포스터 I</span></div>' +
+        '<div class="tptitle">' + esc(p.title) + '</div>' +
+        '<div class="tpmeta">' + esc(p.authors) + '</div>' +
+        '<div class="tpmeta">' + esc(p.aff) + '</div></article>';
+    }).join("");
+  }
+
   /* ---------- toast ---------- */
   var toastTimer = null;
   function toast(msg){
@@ -611,7 +986,7 @@
 
   /* ---------- tabs ---------- */
   function setTab(name){
-    var panels = {sched:"p-sched", taxi:"p-taxi", ktx:"p-ktx"};
+    var panels = {sched:"p-sched", taxi:"p-taxi", prog:"p-prog", ktx:"p-ktx"};
     Object.keys(panels).forEach(function(k){
       var p = $(panels[k]);
       if (p) p.className = "panel" + (k === name ? " on" : "");
@@ -729,11 +1104,30 @@
   });
 
   /* ---------- init ---------- */
+  $("progDays").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-pday]");
+    if (!b) return;
+    PDAY = b.getAttribute("data-pday");
+    renderProg();
+  });
+  $("progVenues").addEventListener("click", function(e){
+    var b = e.target.closest("button[data-pven]");
+    if (!b) return;
+    PVEN = b.getAttribute("data-pven");
+    renderProg();
+  });
+  $("progSearch").addEventListener("input", function(e){
+    PQ = e.target.value || "";
+    renderProg();
+  });
+
   renderChips();
   renderTimeline();
   renderMine();
   renderTeams();
   renderKtx();
+  renderProg();
+  renderTeamPosts();
   setTab("sched");
 })();
 </script>
